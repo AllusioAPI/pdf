@@ -112,7 +112,7 @@ window.function = function (html, fileName, format, zoom, orientation, margin, b
 	button#download:hover {
 	  background: #FFFFFF;
    color: #1C002E;
-   border: 5px solid #1C002E;
+   border: 2.5px solid #1C002E;
 	}
   
 	button#download.downloading {
