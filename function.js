@@ -142,7 +142,7 @@ window.function = function (html, fileName, format, zoom, orientation, margin, b
 	  <style>${customCSS}</style>
 	  <div class="main">
 	  <div class="header">
-		<button class="button" id="download">📄 DOWNLOAD PDF</button>
+		<button class="button" id="download">📄 DOWNLOAD</button>
 	  </div>
 	  <div id="content">${html}</div>
 	  </div>
@@ -150,7 +150,7 @@ window.function = function (html, fileName, format, zoom, orientation, margin, b
 	  document.getElementById('download').addEventListener('click', function() {
 		var element = document.getElementById('content');
 		var button = this;
-		button.innerText = '🔄 PLEASE WAIT...';
+		button.innerText = '⏳ WAIT';
 		button.className = 'downloading';
   
 		var opt = {
