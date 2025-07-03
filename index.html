@@ -1,16 +1,65 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>PDF | Allusio API</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Allusio API</title>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;500;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Onest', sans-serif;
+      background-color: #f9f9f9;
+      color: #1a1a1a;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 1.5rem 3rem;
+    }
+    img.header-image {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+    }
+    .content {
+      max-width: 800px;
+      margin-top: 2.5rem;
+    }
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    p {
+      font-size: 1.1rem;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.6rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
-
 <body>
-  <img src="/image.png">
-  <p>The Allusio PDF API is a private, secure endpoint built to generate production-ready documents directly from your Allusio workspace. It supports fully formatted Call Sheets, Shooting Schedules, and Contracts, rendered instantly from structured project data. Designed for reliability and speed, it delivers clean, professional PDFs without manual formatting or external tools. This API is not publicly accessible and is protected by internal token-based authentication. Data is never stored permanently — every request is processed securely in isolated containers, with output delivered via encrypted CDN. Allusio’s infrastructure ensures your production documents are not only beautifully formatted, but generated with studio-grade privacy and control.</p>
-  <script src="function.js"></script>
-  <script src="driver.js"></script>
+  <img src="image.png" alt="Allusio Header" class="header-image" />
+  <div class="content">
+    <p>
+      The <strong>Allusio PDF API</strong> is a private, secure endpoint built to generate production-ready documents directly from your Allusio workspace. It supports fully formatted <strong>Call Sheets</strong>, <strong>Shooting Schedules</strong>, and <strong>Contracts</strong>, rendered instantly from structured project data. Designed for reliability and speed, it delivers clean, professional PDFs without manual formatting or external tools.
+    </p>
+    <p>
+      This API is <strong>not publicly accessible</strong> and is protected by internal token-based authentication. Data is never stored permanently — every request is processed securely in isolated containers, with output delivered via encrypted CDN. Allusio’s infrastructure ensures your production documents are not only beautifully formatted, but generated with studio-grade privacy and control.
+    </p>
+  </div>
 </body>
-
 </html>
