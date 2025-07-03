@@ -84,187 +84,101 @@ window.function = function (html, fileName, format, zoom, orientation, margin, b
 	);
 
 	const customCSS = `
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
  
 	body {
-		margin: 0!important;
-		font-family: "Roboto", sans-serif;
-		background-color: #f8f9fa;
+	  margin: 0!important
 	}
-
-	.header {
-		background: #1C002E;
-		padding: 16px 24px;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-		position: sticky;
-		top: 0;
-		z-index: 100;
-	}
-
-	.header-left {
-		display: flex;
-		align-items: center;
-		gap: 16px;
-	}
-
-	.logo {
-		width: 40px;
-		height: 40px;
-		background: #FFFFFF;
-		border-radius: 8px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		font-size: 18px;
-		font-weight: 700;
-		color: #1C002E;
-	}
-
-	.header-text {
-		color: #FFFFFF;
-		font-size: 18px;
-		font-weight: 600;
-		margin: 0;
-	}
-
-	.header-subtitle {
-		color: rgba(255, 255, 255, 0.8);
-		font-size: 14px;
-		font-weight: 400;
-		margin: 0;
-		margin-top: 2px;
-	}
-
+  
 	button#download {
-		border-radius: 8px;
-		font-size: 16px;
-		font-weight: 600;
-		line-height: 1.5rem;
-		color: #1C002E;
-		border: none;
-		font-family: "Roboto", sans-serif;
-		padding: 12px 20px;
-		background: #FFFFFF;
-		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-		cursor: pointer;
-		transition: all 0.2s ease;
-		display: flex;
-		align-items: center;
-		gap: 8px;
+	  position: fixed;
+	  border-radius: 0.5rem;
+	  font-size: 20px;
+	  font-weight: 600;
+	  line-height: 1.5rem;
+	  color: #FFFFFF;
+	  border: none;
+	  font-family: "Roboto", sans-serif;
+	  padding: 0px 12px;
+	  height: 40px;
+	  background: #1C002E;
+	  top: 8px;
+	  right: 8px;
+	  box-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.08), 0 1px 2.5px rgba(0, 0, 0, 0.1);
+	  cursor: pointer;
 	}
-
+  
 	button#download:hover {
-		background: #f8f9fa;
-		transform: translateY(-1px);
-		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+	  background: #FFFFFF;
+   color: #1C002E;
+   border: 2.5px solid #1C002E;
 	}
-
+  
 	button#download.downloading {
-		color: #666;
-		background: #f0f0f0;
-		cursor: not-allowed;
+	  color: #FFFFFF;
+   background: #1C002E;
 	}
-
+  
 	button#download.done {
-		color: #22c55e;
-		background: #f0fdf4;
-		border: 1px solid #22c55e;
+	  color: #FFFFFF;
+   background: #1C002E;
 	}
-
-	.content-wrapper {
-		padding: 24px;
-		max-width: 1200px;
-		margin: 0 auto;
-	}
-
-	#content {
-		background: #FFFFFF;
-		border-radius: 12px;
-		padding: 32px;
-		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-		border: 1px solid #e5e7eb;
-	}
-
+  
 	::-webkit-scrollbar {
-		width: 6px;
-		background-color: rgb(0 0 0 / 5%);
+	  width: 5px;
+	  background-color: rgb(0 0 0 / 8%);
 	}
-
+  
 	::-webkit-scrollbar-thumb {
-		background-color: rgb(0 0 0 / 20%);
-		border-radius: 3px;
-	}
-
-	::-webkit-scrollbar-thumb:hover {
-		background-color: rgb(0 0 0 / 30%);
+	  background-color: rgb(0 0 0 / 32%);
+	  border-radius: 4px;
 	}
 	`;
 
 	// HTML THAT IS RETURNED AS A RENDERABLE URL
 	const originalHTML = `
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
-	<style>${customCSS}</style>
-	<div class="main">
-		<div class="header">
-			<div class="header-left">
-				<div class="logo">A</div>
-				<div>
-					<div class="header-text">Allusio PDF Generator</div>
-					<div class="header-subtitle">Ready to download your document</div>
-				</div>
-			</div>
-			<button id="download">
-				<span>📄</span>
-				<span>Download PDF</span>
-			</button>
-		</div>
-		<div class="content-wrapper">
-			<div id="content">${html}</div>
-		</div>
-	</div>
-	<script>
-	document.getElementById('download').addEventListener('click', function() {
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+	  <style>${customCSS}</style>
+	  <div class="main">
+	  <div class="header">
+		<button class="button" id="download">📄 DOWNLOAD</button>
+	  </div>
+	  <div id="content">${html}</div>
+	  </div>
+	  <script>
+	  document.getElementById('download').addEventListener('click', function() {
 		var element = document.getElementById('content');
 		var button = this;
-		var buttonText = button.querySelector('span:last-child');
-		var buttonIcon = button.querySelector('span:first-child');
-		
-		buttonIcon.innerText = '⏳';
-		buttonText.innerText = 'Processing...';
+		button.innerText = '⏳ WAIT';
 		button.className = 'downloading';
-
+  
 		var opt = {
-			pagebreak: { mode: ['css'], before: ${JSON.stringify(breakBefore)}, after: ${JSON.stringify(breakAfter)}, avoid: ${JSON.stringify(breakAvoid)} },
-			margin: ${margin},
-			filename: '${fileName}',
-			html2canvas: {
-				useCORS: true,
-				scale: ${quality}
-			},
-			jsPDF: {
-				unit: 'px',
-				orientation: '${orientation}',
-				format: [${finalDimensions}],
-				hotfixes: ['px_scaling']
-			}
+		pagebreak: { mode: ['css'], before: ${JSON.stringify(breakBefore)}, after: ${JSON.stringify(breakAfter)}, avoid: ${JSON.stringify(breakAvoid)} },
+		margin: ${margin},
+		filename: '${fileName}',
+		html2canvas: {
+		  useCORS: true,
+		  scale: ${quality}
+		},
+		jsPDF: {
+		  unit: 'px',
+		  orientation: '${orientation}',
+		  format: [${finalDimensions}],
+		  hotfixes: ['px_scaling']
+		}
 		};
-		
 		html2pdf().set(opt).from(element).toPdf().get('pdf').then(function(pdf) {
-			buttonIcon.innerText = '✅';
-			buttonText.innerText = 'Download Complete';
-			button.className = 'done';
-			setTimeout(function() { 
-				buttonIcon.innerText = '📄';
-				buttonText.innerText = 'Download PDF';
-				button.className = ''; 
-			}, 3000);
+		button.innerText = '✅ DONE';
+		button.className = 'done';
+		setTimeout(function() { 
+		  button.innerText = '📄 DOWNLOAD PDF';
+		  button.className = ''; 
+		}, 2000);
 		}).save();
-	});
-	</script>
-	`;
+	  });
+	  </script>
+	  `;
 	var encodedHtml = encodeURIComponent(originalHTML);
 	return "data:text/html;charset=utf-8," + encodedHtml;
 };
