@@ -1,9 +1,9 @@
 [
 	{
 		"kind": "column",
-		"name": "PDF Generation | Allusio API",
-		"description": "Allows you to preview and save HTML as PDFs.",
-		"author": "Allusio <hey@allusio.co>",
+		"name": "Allusio API (PDF Generation)",
+		"description": "Create PDFs directly from your production data.",
+		"author": "Ben Young <benrjyoungnz@gmail.com>",
 		"params": [
 			{
 				"name": "html",
